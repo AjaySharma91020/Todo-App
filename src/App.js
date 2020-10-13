@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import Task from './Components/Task'
+import AddTaskComponent from './Components/AddTaskContainer'
 import './App.css';
 
 class App extends Component {
@@ -47,8 +48,7 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-             <input type = "Text" placeholder = "enter the task name" value = {this.state.newTask} onChange = {this.handleChange.bind(this)}/>
-             <button className="btn btn-success" onClick = {this.addTask.bind(this)}>Add Task</button>
+            <AddTaskComponent newTask = {this.state.newTask} handleChange = {this.handleChange.bind(this)} addTask = {this.addTask.bind(this)}  />
             {this.state.tasks.map((task)=>{
                 return(
                    <Task 
