@@ -1,0 +1,6 @@
+.taskCompleted {
+  text-decoration: line-through;
+}
+.cursorPointer:hover{
+  cursor: pointer;
+}

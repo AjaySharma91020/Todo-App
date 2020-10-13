@@ -1,27 +1,42 @@
 import React,{Component} from 'react';
-import Task from './Components/Task'
-import AddTaskComponent from './Components/AddTaskContainer'
+import AddTaskContainer from './Components/AddTaskContainer'
 import './App.css';
+import TodoList from './Components/TodoList'
 
 class App extends Component {
   state = {
     count : 0,
     tasks : [
        {
-          name : "Ajay",
-          id : 5438
+          name : "Sleeping",
+          id : 5438,
+          isCompleted : false,
        },
        {
-          name : "Sandeep",
-          id : 137473
+          name : "Playing",
+          id : 137473,
+          isCompleted : false,
        }
     ]
   }
+
+  toggleTaskComplete = (taskId) => {
+       let newArr = [...this.state.tasks]
+       newArr.forEach((task)=>{
+           if(task.id === taskId){
+               task.isCompleted = !task.isCompleted
+           }
+       })
+       this.setState({
+           tasks : newArr
+       })
+  } 
   addTask(newTask){
       let newArr = [...this.state.tasks]
       newArr.push({
          name : newTask,
-         id : this.state.count + 1
+         id : this.state.count + 1,
+         isCompleted : false
       })
       this.setState({
         tasks : newArr,
@@ -41,16 +56,8 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-            <AddTaskComponent addTask = {this.addTask.bind(this)}  />
-            {this.state.tasks.map((task)=>{
-                return(
-                   <Task 
-                       name = {task.name}
-                       key = {task.id}
-                       removeTask = {this.removeTask.bind(this,task.id)}
-                   />
-                )
-            })}
+            <AddTaskContainer addTask = {this.addTask.bind(this)}  />
+            <TodoList tasks = {this.state.tasks} removeTask = {this.removeTask} toggleTaskComplete = {this.toggleTaskComplete} />
       </div>
     );
   }
