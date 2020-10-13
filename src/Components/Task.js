@@ -3,17 +3,17 @@ import "./Task.css";
 
 let Task = (props) => {
   return (
-    <div className="cursorPointer bg-primary m-2">
-      <div className="row p-2">
-        <div className="col-10 text-center font-weight-bold text-white ">
-          <p
-            className={props.isCompleted ? "taskCompleted" : ""}
-            onClick={props.toggleTaskComplete}
-          >
-            {props.name}
-          </p>
+    <div className="cursorPointer m-2">
+      <div className="row bg-primary">
+        <div className="col-sm-9 text-center font-weight-bold text-white p-2">
+            <p
+              className={props.isCompleted ? "taskCompleted" : ""}
+              onClick={props.toggleTaskComplete}
+            >
+              {props.name}
+            </p>
         </div>
-        <div className="col-2">
+        <div className="col-sm-3  text-center p-2">
           <button className="btn btn-danger" onClick={props.removeTask}>
             Remove
           </button>
