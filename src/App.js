@@ -5,7 +5,6 @@ import './App.css';
 
 class App extends Component {
   state = {
-    newTask : "",
     count : 0,
     tasks : [
        {
@@ -18,20 +17,14 @@ class App extends Component {
        }
     ]
   }
-  handleChange(event){
-      this.setState({
-           newTask : event.target.value
-      })
-  }
-  addTask(){
+  addTask(newTask){
       let newArr = [...this.state.tasks]
       newArr.push({
-         name : this.state.newTask,
+         name : newTask,
          id : this.state.count + 1
       })
       this.setState({
         tasks : newArr,
-        newTask : "",
         count : this.state.count + 1   
       })
 
@@ -48,7 +41,7 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-            <AddTaskComponent newTask = {this.state.newTask} handleChange = {this.handleChange.bind(this)} addTask = {this.addTask.bind(this)}  />
+            <AddTaskComponent addTask = {this.addTask.bind(this)}  />
             {this.state.tasks.map((task)=>{
                 return(
                    <Task 
