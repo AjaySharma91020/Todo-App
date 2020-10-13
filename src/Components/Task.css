@@ -1,6 +1,9 @@
 .taskCompleted {
   text-decoration: line-through;
+  text-decoration-color: black;
 }
 .cursorPointer:hover{
   cursor: pointer;
+  transform: scale(1.1);
+  transition: 0.5s;
 }

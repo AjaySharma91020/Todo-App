@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import AddTaskContainer from "./Components/AddTaskContainer";
-import "./App.css";
 import TodoList from "./Components/TodoList";
 import { saveStateToLocalStorage, getStateFromLocalStorage } from "./Helper";
 
@@ -71,7 +70,8 @@ class App extends Component {
   render() {
     console.log("Rendering");
     return (
-      <div className="App">
+      <div className="container">
+        <h1 className="text-center"> Todo App</h1>
         <AddTaskContainer addTask={this.addTask.bind(this)} />
         <TodoList
           tasks={this.state.tasks}

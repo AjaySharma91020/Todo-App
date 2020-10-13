@@ -17,9 +17,9 @@ class AddTaskContainer extends Component{
    }
    render(){
       return (
-        <div className="container">
+        <div className="text-center m-1">
           <input type = "Text" placeholder = "enter the task name" value = {this.state.newTask} onChange = {this.handleChange.bind(this)}/>
-          <button className="btn btn-success" onClick = {this.handleAddButtonClick.bind(this)}>Add Task</button>   
+          <button className="btn btn-success m-2" onClick = {this.handleAddButtonClick.bind(this)}>Add Task</button>   
           </div> 
       );
    }
